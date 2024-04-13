@@ -14,11 +14,12 @@ class SearchByPlatPage extends ConsumerStatefulWidget {
   ConsumerState<SearchByPlatPage> createState() => _SearchByPlatPageState();
 }
 
+
 class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
   final edtSearch = TextEditingController();
 
   execute() {
-
+    
     ServiceDataSource.searchPlat(edtSearch.text).then((value) {
       setSearchByPlatStatus(ref, 'Loading');
       value.fold(
@@ -47,7 +48,8 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
         (result) {
           setSearchByPlatStatus(ref, 'Success');
           List data = result['data'];
-          List<ServiceModel> list = data.map((e) => ServiceModel.fromJson(e)).toList();
+          List<ServiceModel> list = 
+            data.map((e) => ServiceModel.fromJson(e)).toList();
           ref.read(searchByPlatListProvider.notifier).setData(list);
         }
       );
@@ -63,34 +65,37 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
         backgroundColor: Colors.blue,
         titleSpacing: 0,
         title: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10)
-          ),
-          height: 40,
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: [
-              const Text(
-                'No Plat:',
-                style: TextStyle(
-                  color: Colors.black,
-                  height: 1,
-                  fontSize: 16
-                ),
-              ),
-              Expanded(
-                child: TextField(
-                  controller: edtSearch,
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    isDense: true,
+          padding: EdgeInsets.only(left: 20),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10)
+            ),
+            height: 40,
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Row(
+              children: [
+                const Text(
+                  'No Plat:',
+                  style: TextStyle(
+                    color: Colors.black,
+                    height: 1,
+                    fontSize: 16
                   ),
-                  style: const TextStyle(height: 1),
-                  onSubmitted: (value) => execute(),
                 ),
-              )
-            ],
+                Expanded(
+                  child: TextField(
+                    controller: edtSearch,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      isDense: true,
+                    ),
+                    style: const TextStyle(height: 1),
+                    onSubmitted: (value) => execute(),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         actions: [
@@ -105,16 +110,16 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
         builder: (_, wiRef, __) {
           String status = wiRef.watch(searchByPlatStatusProvider);
           List<ServiceModel> list = wiRef.watch(searchByPlatListProvider);
-
-          if(status==''){
+          print(status);
+          if(status == ''){
             return DView.nothing();
           }
 
-          if(status=='Loading') {
+          if(status == 'Loading') {
             return DView.loadingCircle();
           }
 
-          if(status== 'Success'){
+          if(status == 'Success'){
             return ListView.builder(
               itemCount: list.length,
               itemBuilder: (context, index) {
@@ -129,7 +134,7 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
                   ),
                   title: Text(service.noPlat),
                   subtitle: Text(service.mobil),
-
+                  trailing: const Icon(Icons.navigate_next),
                 );
               },
             );

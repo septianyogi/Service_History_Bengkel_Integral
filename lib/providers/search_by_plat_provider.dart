@@ -7,14 +7,14 @@ setSearchByPlatStatus(WidgetRef ref, String newStatus) {
   ref.read(searchByPlatStatusProvider.notifier).state = newStatus;
 }
 
-final searchByPlatListProvider = StateNotifierProvider.autoDispose<SearchByPlatList, List<ServiceModel>>(
-  ((ref) => SearchByPlatList([])),
-);
+final searchByPlatListProvider = 
+  StateNotifierProvider.autoDispose<SearchByPlatList, List<ServiceModel>>(
+  (ref) => SearchByPlatList([]));
 
 class SearchByPlatList extends StateNotifier<List<ServiceModel>> {
   SearchByPlatList(super.state);
 
-  setData(newList) {
+  setData(List<ServiceModel> newList) {
     state = newList;
   }
 }

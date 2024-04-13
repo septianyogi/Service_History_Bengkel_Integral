@@ -1,4 +1,4 @@
-import 'package:bengkel_service/models/serviceitem_model.dart';
+import 'package:bengkel_service/models/serviceItem_model.dart';
 
 class ServiceModel {
     String noPlat;
@@ -7,7 +7,6 @@ class ServiceModel {
     String noPemilik;
     DateTime createdAt;
     DateTime updatedAt;
-    ServiceItemModel services;
 
     ServiceModel({
         required this.noPlat,
@@ -16,7 +15,6 @@ class ServiceModel {
         required this.noPemilik,
         required this.createdAt,
         required this.updatedAt,
-        required this.services,
     });
 
     factory ServiceModel.fromJson(Map<String, dynamic> json) => ServiceModel(
@@ -26,7 +24,6 @@ class ServiceModel {
         noPemilik: json["no_pemilik"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
-        services: ServiceItemModel.fromJson(json["services"]),
     );
 
     Map<String, dynamic> toJson() => {
@@ -36,6 +33,5 @@ class ServiceModel {
         "no_pemilik": noPemilik,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
-        "services": services.toJson(),
     };
 }
