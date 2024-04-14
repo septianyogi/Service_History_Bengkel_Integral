@@ -1,4 +1,8 @@
+// ignore_for_file: type_literal_in_constant_pattern, unused_import, prefer_const_constructors, avoid_print, unused_local_variable
+
 import 'package:bengkel_service/datasource/service_datasource.dart';
+import 'package:bengkel_service/models/main_service_model.dart';
+import 'package:bengkel_service/models/serviceItem_model.dart';
 import 'package:bengkel_service/models/service_model.dart';
 import 'package:bengkel_service/providers/search_by_plat_provider.dart';
 import 'package:d_view/d_view.dart';
@@ -56,7 +60,6 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
     });
   }
 
-  
 
   @override
   Widget build(BuildContext context) {
@@ -110,6 +113,10 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
         builder: (_, wiRef, __) {
           String status = wiRef.watch(searchByPlatStatusProvider);
           List<ServiceModel> list = wiRef.watch(searchByPlatListProvider);
+
+          // list[index].services.map((e) => ServiceItemModel.fromJson(e)).toList();
+
+
           print(status);
           if(status == ''){
             return DView.nothing();
@@ -124,6 +131,10 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
               itemCount: list.length,
               itemBuilder: (context, index) {
                 ServiceModel service = list[index];
+
+                final subservice = service.services.map((e) => e).toList();
+
+
                 return ListTile(
                   onTap: () {},
                   leading: CircleAvatar(
@@ -134,6 +145,7 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
                   ),
                   title: Text(service.noPlat),
                   subtitle: Text(service.mobil),
+                  
                   trailing: const Icon(Icons.navigate_next),
                 );
               },
@@ -146,3 +158,4 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
     );
   }
 }
+

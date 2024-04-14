@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:bengkel_service/config/app_constant.dart';
 import 'package:bengkel_service/config/app_response.dart';
 import 'package:bengkel_service/config/failure.dart';

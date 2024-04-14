@@ -7,6 +7,7 @@ class ServiceModel {
     String noPemilik;
     DateTime createdAt;
     DateTime updatedAt;
+    List<ServiceItemModel> services;
 
     ServiceModel({
         required this.noPlat,
@@ -15,6 +16,7 @@ class ServiceModel {
         required this.noPemilik,
         required this.createdAt,
         required this.updatedAt,
+        required this.services
     });
 
     factory ServiceModel.fromJson(Map<String, dynamic> json) => ServiceModel(
@@ -24,6 +26,8 @@ class ServiceModel {
         noPemilik: json["no_pemilik"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
+        
+        services: List<ServiceItemModel>.from(json["services"].map((x) => ServiceItemModel.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {

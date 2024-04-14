@@ -14,6 +14,8 @@ class AppResponse {
 
     switch (response.statusCode) {
       case 200: // read
+        var responseBody = jsonDecode(response.body);
+        return responseBody;
       case 201: // create,update
         var responseBody = jsonDecode(response.body);
         return responseBody;
