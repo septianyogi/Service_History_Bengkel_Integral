@@ -104,7 +104,7 @@ class DetailServicePage extends StatelessWidget {
             ),
           ),
             ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: ScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemCount: service.services.length,
