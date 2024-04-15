@@ -39,6 +39,7 @@ dependencies:
   d_method: ^0.2.6
   d_view: ^0.0.5
   dartz: ^0.10.1
+  intl: ^0.18.1
   flutter_riverpod: ^2.5.1
 
 dev_dependencies:

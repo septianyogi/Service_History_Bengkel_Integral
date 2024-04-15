@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Nac {
+class Nav {
   static push(BuildContext context, Widget page) {
     return Navigator.push(
       context, 
