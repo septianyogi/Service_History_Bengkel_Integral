@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, use_key_in_widget_constructors
+
 import 'package:bengkel_service/models/serviceItem_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +14,25 @@ class ServicesTile extends StatelessWidget {
     DateFormat dateFormat = DateFormat("dd-MM-yyy");
     String tanggal = dateFormat.format(services.tanggal);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Card(
-        color: Colors.blue[100],
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              spreadRadius: 1,
+              blurRadius: 2,
+            )
+          ]
+        ),
         child: Column(
           children: <Widget>[
             ListTile(
               title: Text(
                 'Tanggal : $tanggal',
-                style: TextStyle(
+                style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 18,
                     color: Colors.black),
@@ -28,7 +40,7 @@ class ServicesTile extends StatelessWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Sparepart :',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -37,12 +49,12 @@ class ServicesTile extends StatelessWidget {
                   ),
                   Text(
                     services.barang,
-                    style: TextStyle(
-                        color: Colors.black, 
+                    style: const TextStyle(
+                        color: Colors.black,
                         fontWeight: FontWeight.w400,
                         fontSize: 17),
                   ),
-                  Text(
+                  const Text(
                     'Jasa :',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -51,14 +63,14 @@ class ServicesTile extends StatelessWidget {
                   ),
                   Text(
                     services.jasa,
-                    style: TextStyle(
-                        color: Colors.black, 
+                    style: const TextStyle(
+                        color: Colors.black,
                         fontWeight: FontWeight.w400,
                         fontSize: 17),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

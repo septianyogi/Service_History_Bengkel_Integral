@@ -118,9 +118,11 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
               itemCount: list.length,
               itemBuilder: (context, index) {
                 ServiceModel service = list[index];
-              
+
                 return ListTile(
-                  onTap: () {Nav.push(context, DetailServicePage(service: service));},
+                  onTap: () {
+                    Nav.push(context, DetailServicePage(service: service));
+                  },
                   leading: CircleAvatar(
                     backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
