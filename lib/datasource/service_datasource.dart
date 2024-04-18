@@ -36,9 +36,9 @@ class ServiceDataSource {
   }
 
   static Future<Either<Failure,Map>> storeService(
-    String no_plat, String mobil, String pemilik, String no_pemilik, DateTime tanggal, String jasa, String barang
+    String no_plat, String mobil, String pemilik, String no_pemilik, String tanggal, String jasa, String barang
   ) async {
-    Uri url = Uri.parse('${AppConstant.baseURL}/service/post');
+    Uri url = Uri.parse('${AppConstant.baseURL}/service/store');
     try {
       final response = await http.post(
         url,

@@ -19,6 +19,26 @@ class DetailServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue[200],
+        title:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+          children: [
+        Text(
+          'Detail Service',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        OutlinedButton.icon(
+          onPressed: () {
+            Nav.push(context, AddServicePage(service: service));
+          },
+          icon: Icon(Icons.add),
+          label: const Text(
+            'Tambah',
+            style: TextStyle(fontWeight: FontWeight.w900),
+          ),
+        ),
+      ])),
       body: ListView(
         children: [
           Container(
@@ -26,29 +46,7 @@ class DetailServicePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(Icons.arrow_back)),
-                      OutlinedButton.icon(
-                        onPressed: () {
-                          Nav.push(context, AddServicePage(service: service));
-                        },
-                        icon: Icon(Icons.add),
-                        label: const Text(
-                          'Tambah',
-                          style: TextStyle(fontWeight: FontWeight.w900),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(

@@ -11,8 +11,8 @@ class ServicesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateFormat dateFormat = DateFormat("dd-MM-yyy");
-    String tanggal = dateFormat.format(services.tanggal);
+    // DateFormat dateFormat = DateFormat("dd-MM-yyy");
+    // String tanggal = dateFormat.format(services.tanggal);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -31,7 +31,7 @@ class ServicesTile extends StatelessWidget {
           children: <Widget>[
             ListTile(
               title: Text(
-                'Tanggal : $tanggal',
+                'Tanggal : ${services.tanggal}',
                 style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 18,

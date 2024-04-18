@@ -3,10 +3,12 @@
 // ignore_for_file: file_names
 
 
+import 'package:intl/intl.dart';
+
 class ServiceItemModel {
     int id;
     String noPlat;
-    DateTime tanggal;
+    String tanggal;
     String jasa;
     String barang;
     DateTime createdAt;
@@ -25,7 +27,7 @@ class ServiceItemModel {
     factory ServiceItemModel.fromJson(Map<String, dynamic> json) => ServiceItemModel(
         id: json["id"],
         noPlat: json["no_plat"],
-        tanggal: DateTime.parse(json["tanggal"]),
+        tanggal: json["tanggal"],
         jasa: json["jasa"],
         barang: json["barang"],
         createdAt: DateTime.parse(json["created_at"]),
@@ -35,7 +37,7 @@ class ServiceItemModel {
     Map<String, dynamic> toJson() => {
         "id": id,
         "no_plat": noPlat,
-        "tanggal": "${tanggal.year.toString().padLeft(4, '0')}-${tanggal.month.toString().padLeft(2, '0')}-${tanggal.day.toString().padLeft(2, '0')}",
+        "tanggal": tanggal,
         "jasa": jasa,
         "barang": barang,
         "created_at": createdAt.toIso8601String(),
