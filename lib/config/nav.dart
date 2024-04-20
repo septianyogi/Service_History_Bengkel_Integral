@@ -13,5 +13,12 @@ class Nav {
       context, 
       MaterialPageRoute(builder: (context) => page)
     );
+  } 
+
+  static pop(BuildContext context, Widget page) {
+    return Navigator.pop(
+      context, 
+      MaterialPageRoute(builder: (context) => page)
+      );
   }
 }

@@ -61,4 +61,34 @@ class ServiceDataSource {
       return left(FetchFailure(e.toString()));
     }
   }
+
+  static Future<Either<Failure,Map>> deleteService(int id) async {
+    Uri url = Uri.parse('${AppConstant.baseURL}/service/delete/$id');
+    try {
+      final response = await http.delete(url);
+      final data = AppResponse.data(response);
+
+      return right(data);
+    } catch (e) {
+      if (e is Failure) {
+        return left(e);
+      }
+      return left(FetchFailure(e.toString()));
+    }
+  }
+
+  static Future<Either<Failure,Map>> getServiceItem(String plat) async {
+    Uri url = Uri.parse('${AppConstant.baseURL}/serviceItem/$plat');
+    try {
+      final response = await http.get(url);
+      final data = AppResponse.data(response);
+
+      return right(data);
+    } catch (e) {
+      if (e is Failure) {
+        return left(e);
+      }
+      return left(FetchFailure(e.toString()));
+    }
+  }
 }
