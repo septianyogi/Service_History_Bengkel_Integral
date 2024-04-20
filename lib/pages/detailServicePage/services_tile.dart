@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, use_key_in_widget_constructors
+// ignore_for_file: unused_import, use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:bengkel_service/models/serviceItem_model.dart';
 import 'package:flutter/foundation.dart';

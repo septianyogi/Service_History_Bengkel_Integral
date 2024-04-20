@@ -1,24 +1,24 @@
+// ignore_for_file: type_literal_in_constant_pattern, avoid_print, non_constant_identifier_names, prefer_const_constructors
+
 import 'package:bengkel_service/config/app_response.dart';
 import 'package:bengkel_service/config/failure.dart';
 import 'package:bengkel_service/datasource/service_datasource.dart';
 import 'package:bengkel_service/models/service_model.dart';
 import 'package:bengkel_service/providers/search_by_plat_provider.dart';
 import 'package:d_info/d_info.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-class AddServicePage extends ConsumerStatefulWidget {
-  const AddServicePage({super.key, required this.service});
+class DetailAddServicePage extends ConsumerStatefulWidget {
+  const DetailAddServicePage({super.key, required this.service});
   final ServiceModel service;
 
   @override
-  ConsumerState<AddServicePage> createState() => _AddServicePageState();
+  ConsumerState<DetailAddServicePage> createState() => _AddServicePageState();
 }
 
-class _AddServicePageState extends ConsumerState<AddServicePage> {
+class _AddServicePageState extends ConsumerState<DetailAddServicePage> {
   final TextEditingController edtNoPlat = TextEditingController();
   final TextEditingController edtMobil = TextEditingController();
   final TextEditingController edtPemilik = TextEditingController();
@@ -92,6 +92,7 @@ class _AddServicePageState extends ConsumerState<AddServicePage> {
       }, (result) {
         DInfo.toastSuccess("berhasil ditambah");
         getData();
+
         Navigator.pop(context);
       });
     });

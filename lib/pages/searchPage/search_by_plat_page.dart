@@ -6,7 +6,9 @@ import 'package:bengkel_service/config/nav.dart';
 import 'package:bengkel_service/datasource/service_datasource.dart';
 import 'package:bengkel_service/models/serviceItem_model.dart';
 import 'package:bengkel_service/models/service_model.dart';
-import 'package:bengkel_service/pages/detail_service.dart';
+import 'package:bengkel_service/pages/detailServicePage/detail_add_service_page.dart';
+import 'package:bengkel_service/pages/detailServicePage/detail_service.dart';
+import 'package:bengkel_service/pages/searchPage/search_add_service_page.dart';
 import 'package:bengkel_service/providers/search_by_plat_provider.dart';
 import 'package:d_view/d_view.dart';
 import 'package:dartz/dartz.dart';
@@ -138,6 +140,11 @@ class _SearchByPlatPageState extends ConsumerState<SearchByPlatPage> {
           }
           return DView.error(data: status);
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {Nav.push(context, SearchAddServicePage());},
+        backgroundColor: Colors.blue[200],
+        child: Icon(Icons.add),
       ),
     );
   }

@@ -3,8 +3,8 @@
 import 'package:bengkel_service/config/nav.dart';
 import 'package:bengkel_service/models/serviceItem_model.dart';
 import 'package:bengkel_service/models/service_model.dart';
-import 'package:bengkel_service/pages/add_service_page.dart';
-import 'package:bengkel_service/pages/services_tile.dart';
+import 'package:bengkel_service/pages/detailServicePage/detail_add_service_page.dart';
+import 'package:bengkel_service/pages/detailServicePage/services_tile.dart';
 import 'package:bengkel_service/providers/search_by_plat_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -30,7 +30,7 @@ class DetailServicePage extends StatelessWidget {
         ),
         OutlinedButton.icon(
           onPressed: () {
-            Nav.push(context, AddServicePage(service: service));
+            Nav.push(context, DetailAddServicePage(service: service));
           },
           icon: Icon(Icons.add),
           label: const Text(
